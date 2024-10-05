@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rak Nails - Raquel</title>
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Rak Nails es tu salón de belleza en Madrid especializado en uñas de gel, diseños artísticos, tratamientos spa y manicura & pedicura. ¡Reserva tu cita hoy y disfruta de un 15% de descuento en nuestra inauguración!">
+    <meta name="keywords" content="Rak Nails, uñas de gel, diseños artísticos, tratamientos spa, manicura, pedicura, salón de uñas, Madrid, belleza, cuidado de uñas">
+    <meta name="author" content="Raquel - Rak Nails">
+
+    <!-- Preconexión a fuentes y iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes mejoradas -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    <!-- Estilos CSS Mejorados -->
+    <style>
+        /* Reset y estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffe6f9;
+            color: #4b0082;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Slider animado mejorado */
+        .slider {
+            background: linear-gradient(90deg, #ff8edb, #d98cd7, #ff8edb, #d98cd7);
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .slider-content {
+            display: inline-block;
+            white-space: nowrap;
+            /* Duración ajustada para controlar la velocidad */
+            animation: slide 180s linear infinite; /* Duración aumentada para movimiento más lento */
+        }
+
+        .slider-content span {
+            display: inline-block;
+            padding-right: 100px; /* Mayor separación entre frases */
+        }
+
+        @keyframes slide {
+            30% { transform: translateX(100%); }
+            30% { transform: translateX(-100%); }
+        }
+
+        /* Header con navegación responsiva */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo-container img {
+            width: 150px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        nav {
+            position: relative;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #4b0082;
+            background-color: #ff66b2;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a.active {
+            background-color: #ff1493;
+            transform: translateY(-3px);
+        }
+
+        /* Hamburger Menu Mejorado */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1100;
+            padding: 10px;
+        }
+
+        .bar {
+            height: 3px;
+            width: 25px;
+            background-color: #ff66b2;
+            margin: 4px 0;
+            transition: 0.4s;
+            border-radius: 2px;
+        }
+
+        /* Animación del menú abierto */
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Hero Section Mejorada */
+        .hero {
+            background: url('images/heroback.png') no-repeat center center/cover;
+            height: 90vh; /* Ajustado a 100vh para una visualización óptima */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(238, 106, 234, 0.2); /* Overlay oscuro transparente */
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Secciones Generales */
+        .section {
+            padding: 60px 0;
+        }
+
+        .bg-light {
+            background-color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            color: #4b0082;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: #ff66b2;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Lista de Servicios Mejorada */
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .service {
+            background-color: #fff0f8;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .service i {
+            font-size: 50px;
+            color: #ff66b2;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .service:hover i {
+            color: #ff1493;
+        }
+
+        .service h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4b0082;
+        }
+
+        /* Galería Mejorada */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+            loading: lazy;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            filter: brightness(90%);
+        }
+
+        /* Sección de Tienda Mejorada */
+        .shop-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .shop-card {
+            background-color: #fff0f8;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .shop-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            loading: lazy;
+        }
+
+        .shop-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .shop-card-body {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .shop-card-body h3 {
+            margin-bottom: 10px;
+            color: #4b0082;
+            font-size: 20px;
+        }
+
+        .shop-card-body p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .shop-card-body .btn {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .shop-card-body .btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        /* Sección "Sobre Mí" Mejorada */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .about-content img {
+            flex: 1;
+            max-width: 300px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            loading: lazy;
+        }
+
+        .about-content img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            flex: 2;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Sección "Pedir Cita" Mejorada */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-content form {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff0f8;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-content form:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-content input,
+        .contact-content textarea,
+        .contact-content select {
+            padding: 15px;
+            border: 2px solid #ff66b2;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .contact-content input:focus,
+        .contact-content textarea:focus,
+        .contact-content select:focus {
+            border-color: #ff1493;
+            outline: none;
+        }
+
+        .contact-content label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+            color: #4b0082;
+        }
+
+        .contact-content button {
+            align-self: center;
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-content button:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .whatsapp-link i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .whatsapp-link:hover {
+            background-color: #1DA851;
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: #4b0082;
+            font-size: 24px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff66b2;
+            transform: scale(1.2);
+        }
+
+        /* Footer Mejorado */
+        footer {
+            background-color: #4b0082;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff66b2;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(255, 166, 214, 0.95);
+                transition: left 0.3s ease;
+                padding-top: 100px;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        .shop-info {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .reservatucita {
+            margin-top: 15px;
+            margin-left: -70px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Slider Sección -->
+    <div class="slider">
+        <div class="slider-content">
+            <span class="slider-text">🎉 Inauguración: ¡15% de descuento! 🎉</span>
+            <span class="slider-text">🍭 Descubre nuestros nuevos diseños 🍭</span>
+            <span class="slider-text">💖 ¡Regálate un capricho hoy! 💖</span>
+            <span class="slider-text">✨ Uñas que brillan contigo ✨</span>
+            <!-- Repetir las frases para un loop continuo -->
+            <span class="slider-text">🎉 Inauguración: ¡15% de descuento! 🎉</span>
+            <span class="slider-text">🍭 Descubre nuestros nuevos diseños 🍭</span>
+            <span class="slider-text">💖 ¡Regálate un capricho hoy! 💖</span>
+            <span class="slider-text">✨ Uñas que brillan contigo ✨</span>
+            <span class="slider-text">🎉 Inauguración: ¡15% de descuento! 🎉</span>
+            <span class="slider-text">🍭 Descubre nuestros nuevos diseños 🍭</span>
+            <span class="slider-text">💖 ¡Regálate un capricho hoy! 💖</span>
+            <span class="slider-text">✨ Uñas que brillan contigo ✨</span>
+        </div>
+    </div>
+
+    <!-- Header Sección -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="#"><img src="images/logo-raknails.jpg" alt="Rak Nails Logo" class="logo" loading="lazy"></a>
+            </div>
+            <nav id="navbar">
+                <ul class="nav-links">
+                    <li><a href="#">Inicio 🏠</a></li>
+                    <li><a href="#servicios">Servicios 💅</a></li>
+                    <li><a href="#galeria">Galería 📸</a></li>
+                    <li><a href="#tienda">Tienda 🛍️</a></li>
+                    <li><a href="#pedir-cita">Pedir Cita 📅</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Sección -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Rak Nails</h1>
+            <p>Tu espacio de belleza y creatividad</p>
+            <a href="#pedir-cita" class="btn">Reserva Ahora</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Sección "Sobre Mí" -->
+        <section id="about" class="section bg-light">
+            <div class="container">
+                <h2>Sobre Mí</h2>
+                <div class="about-content">
+                    <img src="images/fotochicahero.png" alt="Sobre Mí" loading="lazy">
+                    <div class="about-text">
+                        <p>¡Bienvenida! Soy Raquel, la artista detrás de Rak Nails. Me encanta crear diseños únicos y personalizados que reflejen tu estilo y personalidad. Además, me encanta charlar contigo, ofrecerte un momento de relax, y regalarte una dulce sorpresa al llegar.</p>
+                        <p>En Rak Nails, cada visita es una experiencia especial donde te sientes como en casa. ¡Ven y déjame cuidar de ti y de tus uñas!</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/people/Raquel-Mota/61566991732947/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/_raknails_/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Servicios" -->
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2>Servicios</h2>
+                <div class="service-list">
+                    <div class="service">
+                        <i class="fas fa-hand-paper"></i>
+                        <h3>Uñas de Gel</h3>
+                        <p>Durabilidad y belleza que destaca.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Diseños Artísticos</h3>
+                        <p>Creatividad y estilo únicos para tus uñas.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-spa"></i>
+                        <h3>Tratamientos Spa</h3>
+                        <p>Cuidado completo para manos y pies.</p>
+                    </div>
+                    <div class="service">
+                        <i class="fas fa-cut"></i>
+                        <h3>Manicura & Pedicura</h3>
+                        <p>Servicio profesional para una apariencia impecable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Galería" -->
+        <section id="galeria" class="section bg-light">
+            <div class="container">
+                <h2>Galería</h2>
+                <div class="gallery-grid">
+                    <a href="images/uñas4.png" data-lightbox="galeria" data-title="Galería 3">
+                        <img src="images/uñas4.png" alt="Galería 3" loading="lazy">
+                    </a>
+                    <a href="images/uñas5.png" data-lightbox="galeria" data-title="Galería 4">
+                        <img src="images/uñas5.png" alt="Galería 4" loading="lazy">
+                    </a>
+                    <a href="images/uñas3.png" data-lightbox="galeria" data-title="Galería 2">
+                        <img src="images/uñas3.png" alt="Galería 2" loading="lazy">
+                    </a>
+                    <a href="images/uñas8.png" data-lightbox="galeria" data-title="Galería 8">
+                        <img src="images/uñas8.png" alt="Galería 8" loading="lazy">
+                    </a>
+                    <a href="images/uñas6.png" data-lightbox="galeria" data-title="Galería 5">
+                        <img src="images/uñas6.png" alt="Galería 5" loading="lazy">
+                    </a>
+                    <a href="images/uñas2.png" data-lightbox="galeria" data-title="Galería 1">
+                        <img src="images/uñas2.png" alt="Galería 1" loading="lazy">
+                    </a>
+                    <a href="images/uñas7.png" data-lightbox="galeria" data-title="Galería 6">
+                        <img src="images/uñas7.png" alt="Galería 6" loading="lazy">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Tienda" Mejorada -->
+        <section id="tienda" class="section">
+            <div class="container">
+                <h2>Tienda</h2>
+                <div class="shop-gallery">
+                    <div class="shop-card">
+                        <img src="images/local2.png" alt="Foto del Local 1" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Foto del Local</h3>
+                            <p>Descubre nuestro acogedor salón diseñado para tu confort.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="shop-card">
+                        <img src="images/local3.png" alt="Foto del Local 2" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Ambiente Relajante</h3>
+                            <p>Un espacio donde puedes relajarte y disfrutar de nuestros servicios.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="shop-card">
+                        <img src="images/local1.png" alt="Foto de Tratamientos" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Tratamientos Exclusivos</h3>
+                            <p>Conoce nuestros tratamientos especializados para el cuidado de tus uñas.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <!-- Puedes añadir más tarjetas de producto aquí -->
+                </div>
+                <!-- Galería de Tratamientos -->
+                <div class="shop-gallery">
+                    <div class="shop-card">
+                        <img src="images/tratamiento1.jpg" alt="Tratamiento 1" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Tratamiento 1</h3>
+                            <p>Descripción del tratamiento 1.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="shop-card">
+                        <img src="images/tratamiento2.jpg" alt="Tratamiento 2" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Tratamiento 2</h3>
+                            <p>Descripción del tratamiento 2.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="shop-card">
+                        <img src="images/tratamiento3.jpg" alt="Tratamiento 3" loading="lazy">
+                        <div class="shop-card-body">
+                            <h3>Tratamiento 3</h3>
+                            <p>Descripción del tratamiento 3.</p>
+                            <a href="#" class="btn">Ver Más</a>
+                        </div>
+                    </div>
+                    <!-- Puedes añadir más tarjetas de tratamiento aquí -->
+                </div>
+                <div class="shop-info">
+                    <h3>Visítanos</h3>
+                    <p>📍 Calle San Antoni, 4, Quart De Poblet, Valencia</p>
+                    <p>🕒 Lunes a Sábado de 9:00 a 16:00</p>
+                    <p>¡Te espero para una experiencia dulce y colorida! 🍬💅</p>
+                    <a href="https://wa.me/624259156" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Pedir Cita" con CSS Mejorado -->
+        <section id="pedir-cita" class="section bg-light">
+            <div class="container">
+                <h2>Pedir Cita</h2>
+                <div class="contact-content">
+                    <form action="https://formspree.io/f/mayvypkn" method="POST">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
+
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Tu Teléfono" required pattern="[0-9]{9}" title="Ingrese un número de teléfono válido de 9 dígitos">
+
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+
+                        <label for="servicio">Servicio:</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="gel">Uñas de Gel</option>
+                            <option value="artisticos">Diseños Artísticos</option>
+                            <option value="spa">Tratamientos Spa</option>
+                            <option value="manicura">Manicura & Pedicura</option>
+                        </select>
+
+                        <label for="mensaje">Mensaje Adicional:</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Mensaje Adicional"></textarea>
+
+                        <button type="submit" class="btn">Enviar Solicitud</button>
+                    </form>
+                    <div class="contact-info">
+                        <p>¿Prefieres un contacto más directo? <a href="https://wa.me/624259156" class="whatsapp-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Escríbeme por WhatsApp</a></p>
+                        <p class="reservatucita">🔔 Reserva tu cita ahora y disfruta de un trato personalizado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Sección -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rak Nails. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Inicio 🏠</a>
+                <a href="#servicios">Servicios 💅</a>
+                <a href="#galeria">Galería 📸</a>
+                <a href="#tienda">Tienda 🛍️</a>
+                <a href="#pedir-cita">Pedir Cita 📅</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Mejorados para la Funcionalidad del Menú y Lightbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer></script>
+    <script>
+        // Toggle Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el evento se propague al documento
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cerrar el menú al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Cerrar el menú al redimensionar la ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
